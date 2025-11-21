@@ -94,7 +94,7 @@
         padding: 35px 30px;
         border-radius: 12px;
         text-align: center;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         width: 400px;
         color: #000000;
         display: flex;
@@ -102,9 +102,18 @@
         gap: 20px;
     }
 
+    @media (max-width: 500px) {
+        .coming-soon-card {
+            width: 100%;
+            box-shadow: none;
+            border-radius: 0;
+        }
+    }
+
     .coming-soon-card h1 {
         margin: 0;
         font-size: 32px;
+        line-height: 37px;
         font-weight: 700;
         color: #006633;
     }
