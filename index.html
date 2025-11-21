@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>بوابة الجزائر</title>
+<title>بوابة الجزائر | Algeria Portal</title>
 
 <!-- Arabic + English fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -25,15 +25,31 @@
         font-family: 'Cairo', 'Montserrat', 'Hind Madurai', sans-serif;
     }
 
+
     body {
-        background-image: url('/assets/images/dz.svg');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
+        overflow: hidden;
+    }
+
+    /* Background with gap top & bottom */
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;        /* GAP TOP */
+        bottom: 0;     /* GAP BOTTOM */
+        left: 0;
+        right: 0;
+
+        background-image: url('/assets/images/dz.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        z-index: -1;
+        opacity: 1;
     }
 
     /* Top-right logo and toggle container */
@@ -88,7 +104,7 @@
     /* Coming Soon card */
     .coming-soon-card {
         background: 
-            linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+            linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
             url('/assets/images/flag-wave-500.png') no-repeat center center;
         background-size: cover;
         padding: 35px 30px;
@@ -160,7 +176,7 @@
 </div>
 
 <!-- Centered Coming Soon Card -->
-<div class="coming-soon-card" style="opacity: .8;">
+<div class="coming-soon-card">
     <h1 id="cardTitle"  style="margin: 0 0 10px 0;">الموقع قيد الإنشاء</h1>
     <p id="cardText1" style="margin: 0 0  0 0; font-weight: 300;">نحن نعمل على إطلاق بوابة الجزائر قريباً.</p>
     <p id="cardText2" style="margin: 0 0  0 0; font-weight: 300;"><span>ابقَ على اطلاع!</span> سيتم تحديث هذا الموقع بأحدث الأخبار والمعلومات.</p>
