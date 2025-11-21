@@ -47,6 +47,7 @@
         align-items: center;
         position: relative;
         overflow: hidden;
+        background-color: #00663310;
     }
 
     /* Background with gap top & bottom */
@@ -64,7 +65,7 @@
         background-repeat: no-repeat;
 
         z-index: -1;
-        opacity: 1;
+        opacity: 0.05;
     }
 
     /* Top-right logo and toggle container */
@@ -122,7 +123,7 @@
             linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
             url('/assets/images/flag-wave-500.png') no-repeat center center;
         background-size: cover;
-        padding: 35px 30px;
+        padding: 45px 30px;
         border-radius: 12px;
         text-align: center;
         box-shadow: 0 6px 20px rgba(0,0,0,0.2);
@@ -138,6 +139,10 @@
             width: 100%;
             box-shadow: none;
             border-radius: 0;
+            padding: 45px 20px;
+        }
+        body::before {
+            background-size: cover;
         }
     }
 
@@ -176,6 +181,13 @@
         height: 60px;
         opacity: .7;
     }
+
+    .disclaimer {
+       text-align: 
+       center; color: #000000; 
+       font-size: 14px;
+       font-weight: 300;
+    }
 </style>
 </head>
 
@@ -199,6 +211,7 @@
 
 <!-- Bottom Audio Player -->
 <div class="bottom-player">
+    <p class="disclaimer" id="disclaimer">Algeria Portal &copy; 2025</p>
     <audio controls autoplay>
         <source src="assets/audio/driassa_01.webm" type="audio/mpeg">
     </audio>
@@ -215,6 +228,7 @@
         ar: {
             dir: 'rtl',
             logo: 'بوابة الجزائر',
+            copyright: 'بوابة الجزائر © 2025',
             title: 'الموقع قيد الإنشاء',
             text1: 'نحن نعمل على إطلاق بوابة الجزائر قريباً.',
             text2: 'ابقَ على اطلاع! سيتم تحديث هذا الموقع بأحدث الأخبار والمعلومات.',
@@ -223,6 +237,7 @@
         en: {
             dir: 'ltr',
             logo: 'Algeria Portal',
+            copyright: 'Algeria Portal © 2025',
             title: 'Website Under Construction',
             text1: 'We are working on launching Algeria Portal soon.',
             text2: 'Stay tuned! This website will be updated with the latest news and information.',
@@ -239,6 +254,7 @@
         cardText1.textContent = texts[lang].text1;
         cardText2.textContent = texts[lang].text2;
         langToggle.textContent = texts[lang].toggle;
+        disclaimer.textContent = texts[lang].copyright;
 
         localStorage.setItem('language', lang);
     }
