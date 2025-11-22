@@ -1,0 +1,48 @@
+const langToggle = document.getElementById('langToggle');
+const logoText = document.getElementById('logoText');
+const cardTitle = document.getElementById('cardTitle');
+const cardText1 = document.getElementById('cardText1');
+const cardText2 = document.getElementById('cardText2');
+
+const texts = {
+    ar: {
+        dir: 'rtl',
+        logo: 'بوابة الجزائر',
+        copyright: 'بوابة الجزائر © 2025',
+        title: 'الموقع قيد الإنشاء',
+        text1: 'نحن نعمل على إطلاق بوابة الجزائر قريباً.',
+        text2: 'ابقَ على اطلاع! سيتم تحديث هذا الموقع بأحدث الأخبار والمعلومات.',
+        toggle: 'English'
+    },
+    en: {
+        dir: 'ltr',
+        logo: 'Algeria Portal',
+        copyright: 'Algeria Portal © 2025',
+        title: 'Website Under Construction',
+        text1: 'We are working on launching Algeria Portal soon.',
+        text2: 'Stay tuned! This website will be updated with the latest news and information.',
+        toggle: 'عربي'
+    }
+};
+
+function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = texts[lang].dir;
+    logoText.textContent = texts[lang].logo;
+    cardTitle.textContent = texts[lang].title;
+    cardText1.textContent = texts[lang].text1;
+    cardText2.textContent = texts[lang].text2;
+    langToggle.textContent = texts[lang].toggle;
+    disclaimer.textContent = texts[lang].copyright;
+    localStorage.setItem('language', lang);
+}
+
+// Initialize language
+const savedLang = localStorage.getItem('language') || 'ar';
+setLanguage(savedLang);
+
+// Toggle button
+langToggle.addEventListener('click', () => {
+    const newLang = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+    setLanguage(newLang);
+});
