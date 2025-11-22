@@ -1,0 +1,154 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Cairo', 'Montserrat', 'Hind Madurai', sans-serif;
+    box-sizing: border-box;
+    /* filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); */
+    color: #ffffff;
+}
+* {
+    font-family: 'Cairo', 'Montserrat', 'Hind Madurai', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #00663310;
+}
+/* Background with gap top & bottom */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;        /* GAP TOP */
+    bottom: 0;     /* GAP BOTTOM */
+    left: 0;
+    right: 0;
+    background-image: url('/assets/images/dz.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.05;
+}
+/* Top-right logo and toggle container */
+.top-right {
+    position: fixed;
+    top: 16px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 32px);
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+}
+.logo-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+.logo-flag {
+    width: 40px;
+    height: 40px;
+    /* border-radius: 50%;
+    border:#00663310 1px solid; */
+}
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #006633;
+    position: relative;
+    margin-top: -6px;
+}
+.lang-toggle {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #00663320;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+    color: #006633;
+}
+.lang-toggle:hover {
+    background: #006633;
+    color: white;
+    border: 1px solid #006633;
+}
+.lang-toggle:active {
+    background: white;
+    color: #006633;
+}
+/* Coming Soon card */
+.coming-soon-card {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('/assets/images/flag-wave-500.png') no-repeat center center;
+    background-size: cover;
+    padding: 45px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    width: 400px;
+    color: #006633;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.coming-soon-card h1 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 37px;
+    font-weight: 700;
+    color: #006633;
+}
+.coming-soon-card p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #006633;
+}
+.coming-soon-card span {
+    font-weight: 600;
+    color: #555;
+}
+/* Bottom audio player */
+.bottom-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 32px);
+    padding: 0 16px 10px 16px;
+    background: transparent;
+    z-index: 999;
+}
+.bottom-player audio {
+    width: 100%;
+    height: 60px;
+    opacity: .7;
+}
+.disclaimer {
+   text-align: 
+   center; color: #006633; 
+   font-size: 14px;
+   font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .coming-soon-card {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 45px 20px;
+    }
+    body::before {
+        background-size: cover;
+        top: 0; 
+        bottom: 0;
+    }
+}
